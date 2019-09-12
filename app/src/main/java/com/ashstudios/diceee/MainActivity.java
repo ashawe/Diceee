@@ -1,18 +1,13 @@
 package com.ashstudios.diceee;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.util.Log;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.seismic.ShakeDetector;
 
