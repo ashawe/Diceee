@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Diceee</string>
+    <string name="shake_to_roll_dice">SHAKE TO ROLL DICE</string>
+    <string name="select_how_many_dice_to_roll">Select how many dice to roll</string>
 </resources>
