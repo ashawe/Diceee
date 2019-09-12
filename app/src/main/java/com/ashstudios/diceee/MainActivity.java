@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements ShakeDetector.Lis
     private int[] dices = {R.drawable.ic_dice,R.drawable.ic_dice2,R.drawable.ic_dice3,R.drawable.ic_dice4, R.drawable.ic_dice5, R.drawable.ic_dice6};
     private int rollNum = 1;
     ShakeDetector sd;
+    SensorManager sensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +77,8 @@ public class MainActivity extends AppCompatActivity implements ShakeDetector.Lis
         });
 
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sd = new ShakeDetector(this);
-        sd.start(sensorManager);
-        sd.setSensitivity(12);
     }
 
     private void vibrate()
@@ -117,5 +116,18 @@ public class MainActivity extends AppCompatActivity implements ShakeDetector.Lis
                 break;
         }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sd.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sd.start(sensorManager);
+        sd.setSensitivity(12);
     }
 }
